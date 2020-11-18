@@ -1,0 +1,424 @@
+:root {
+	--dark: #25161b;
+	--mild-dark: #3f4441;
+	--mild: #453953;
+	--mid: #5e6f64;
+	--mild-light: #461b25;
+	--mild-bright: #ba7967;
+	--bright: #f3cba5;
+	--light: #ffdecf;
+	--error: #eb4a5f;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+	width: 80%;
+	display: table-cell;
+  vertical-align: middle;
+	grid-template-columns: 1fr;
+	grid-template-rows: 5fr;
+	padding: 10px 0 50px;
+	font: 17px  'Overpass', sans-serif;
+	background-color: var(--dark);
+	color: var(--light);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+}
+
+header {
+	padding: .5rem;
+}
+
+main {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	max-width: 1000px;
+	z-index: 10;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	padding: 0.75rem;
+	max-width: 1000px;
+}
+
+section#validation {
+	background-color: var(--dark);
+	margin-bottom: 0rem;
+	border-radius: 0rem;
+	padding: 0rem;
+}
+
+h1,
+h2, h3 {
+	font-family:  'Overpass', sans-serif;
+	font-weight: 300;
+	color: var(--dark);
+	background: var(--light);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2rem;
+	padding: 1.3rem 0;
+}
+
+h3 {
+	font-size: 1.75rem;
+	padding-bottom: 0.8rem;
+}
+
+a {
+	color: var(--light);
+	text-decoration: none;
+	font-family: inherit;
+	font-weight: 700;
+	transition: 0.4s;
+	text-align: center;
+	padding: 1.5rem 0 0.75rem;
+	display: block;
+}
+
+a:hover {
+	color: var(--mild-bright);
+}
+
+a.button,
+input[type=submit] {
+	color: var(--bright);
+	background: var(--mild-dark);
+	font-family: inherit;
+	padding: 10px 14px 12px;
+	font-size: 17px;
+	border-radius: .5rem;
+	cursor: pointer;
+	margin-top: 0.75rem;
+}
+
+form a.button,
+input[type=submit] {
+	transition: 0.1s;
+}
+
+input[type=submit] {
+	border: 0;
+}
+
+a.button.active,
+a.button:hover,
+input[type=submit]:hover,
+a.button:focus,
+#delete-button:hover,
+input[type=submit]:focus {
+	background-color: var(--mild);
+}
+
+#new-book {
+	margin-bottom: 2rem;
+}
+
+table {
+	width: 100%;
+	margin-top: 1rem;
+	border-collapse: collapse;
+	border-radius: 1rem;
+	overflow: hidden;
+	opacity: .95;
+}
+
+th {
+	border-collapse: collapse;
+	border-bottom: 2px solid var(--bright);
+	text-align: left;
+	padding: 10px 25px 10px 15px;
+}
+
+tr {
+	min-height: 50px;
+	background-color: var(--dark);
+}
+
+tr:nth-child(2n) {
+	background: var(--mid);
+}
+
+td {
+	padding: 8px 25px 7px 10px;
+}
+
+td a {
+	text-align: left;
+}
+
+label {
+	padding-top: 16px;
+	padding-bottom: 5px;
+	transition: 0.4s;
+	display: block;
+}
+
+input {
+	padding: 10px 14px 12px;
+	font-size: 15px;
+	font-family: inherit;
+	color: var(--mild-light);
+	border-radius: .5rem;
+	border-color: var(--bright);
+	background-color: var(--light);
+	transition: 0.2s;
+	margin-top: 0.75rem;
+	
+}
+
+input[type=text] {
+	width: 100%;
+}
+
+input#year {
+	margin-bottom: 1rem;
+}
+
+input:focus {
+	border-color: var(--mild);
+}
+
+.error {
+	color: var(--error);
+}
+
+h3.error {
+	background-color: var(--bright);
+}
+
+/* Mobile version settings */
+@media (max-width: 500px) {
+	table,
+	thead,
+	tbody,
+	th,
+	td,
+	tr {
+		display: block;
+	}
+
+	table {
+		border-radius: .5rem;
+	}
+
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr {
+		border: 1px solid var(--bright);
+	}
+
+	td {
+		border: none;
+		border-bottom: 1px solid var(--light);
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+	}
+
+	td:nth-of-type(1):before {
+		content: "Title";
+	}
+	td:nth-of-type(2):before {
+		content: "Author";
+	}
+	td:nth-of-type(3):before {
+		content: "Genre";
+	}
+	td:nth-of-type(4):before {
+		content: "Year";
+	}
+}
+
+@media (min-width: 600px) {
+	body {
+		padding-left: 50px;
+		padding-right: 50px;
+		justify-items: center;
+	}
+
+	main {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		margin: 0;
+		justify-self: stretch;
+	}
+
+	header {
+		justify-self: start;
+	}
+
+	form {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		justify-self: stretch;
+
+		flex-flow: row wrap;
+		justify-content: flex-end;
+		align-items: center;
+
+		padding: 1.5rem;
+		border-radius: 1rem;
+		background-color: var(--mild-light);
+		margin-bottom: 2rem;
+	}
+
+	#delete {
+		padding: 0rem;
+		padding-right: 1rem;
+		border-radius: 1rem;
+		margin-bottom: 0rem;
+		background-color: var(--dark);
+		float: left;
+	}
+
+	#delete-button {
+		background-color: var(--mild-light);
+		color: var(--light);
+	}
+
+	img#library-card {
+		position: absolute;
+		width:20%;
+		height:20%;
+    top: 5%;
+		right: 25%;
+		object-fit: scale-down;
+	}
+
+	img#err {
+		display: inline-block;
+		position: absolute;
+		width:25%;
+		height:25%;
+    top: 25%;
+		right: 10%;
+		object-fit: contain;
+	}
+
+	#new-book {
+		text-align: left;
+		margin-bottom: 0;
+		flex-basis: 70%;
+	}
+	#clear-search {
+		order: 1;
+		flex-basis: 30%;
+		margin: 0 auto;
+		text-align: right;
+		font-weight: 400;
+	}
+
+	#cancel {
+		padding: 0 1.5rem;
+	}
+
+	input[type="submit"] {
+		margin-top: 0;
+		padding: 0.6rem 24px 0.8rem;
+		margin-left: 1.25rem;
+		margin-top: 0;
+		flex-shrink: 1;
+	}
+
+	input[type=search] {
+		margin-left: 1rem;
+		margin-top: 0;
+		flex-grow: 1;
+		flex-shrink: 10;
+	}
+
+	label {
+		padding: 0.6rem 0.25rem 0.5rem 0;
+	}
+
+	td a {
+		padding-top: 0.75rem;
+	}
+
+	div {
+		flex-basis: 100%;
+	}
+
+	div label {
+		display: inline-block;
+		width: 70px;
+	}
+
+	input[type=text] {
+		margin-bottom: 0.75rem;
+		max-width: 380px;
+	}
+
+	a {
+		display: inline-block;
+	}
+
+	a.button {
+		margin-top: 0rem;
+	}
+}
+
+@media (min-width: 1177px) {
+	body {
+		padding-left: 100px;
+		padding-right: 50px;
+		grid-template-columns: 3fr 2fr;
+	}
+
+	header {
+		font-size: 3.5rem;
+		padding: 3rem;
+	}
+
+	form {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	div label {
+		width: 130px;
+	}
+}
+
+@media (max-width: 900px) {
+	img#library-card,
+	img#err {
+		display: none;
+	}
+}

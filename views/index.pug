@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  style.
+      body {
+        background-image: url('/static/images/athens.jpg');
+      }
+  form#search-form(action="/books", method="get")
+    input(name="query" placeholder="Search" type="search" id="search" value=query)
+    input(type="submit" value="Search")
+    a#clear-search(href="/books") All Results
+    a#new-book(href="/books/new") Create A New Book
+  main#main-content
+    if books.length
+      table
+        thead
+          tr
+            th.title Title
+            th.author Author
+            th.genre Genre
+            th.year Year
+        tbody
+          each book in books
+            tr.tr-book
+              td: a(href=`/books/${book.id}`) #{book.title}
+              td #{book.author}
+              td #{book.genre}
+              td #{book.year}
+      br
+      div
+      - for(let i = 0; i < totalPages; i++) {
+          a.button(href=`/books?query=${query}&page=${i}`)= i+1
+      - } 
+    else
+      table
+        tbody
+          tr
+            td No books match your query

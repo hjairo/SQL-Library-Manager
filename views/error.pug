@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  main#main-content
+    h1 #{err.status} Error
+    h2 #{err.message}
+    img#err(src='/static/images/arthurmad.jpg' alt='err')
+    p
+      a.button(href="/books") Back to Library

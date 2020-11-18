@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    main
+        h1 New Book
+        img#library-card(src='/static/images/libraryCard.jpg' alt='err')
+        include validation
+        form(action="/books/new", method="post")
+            include form
+            input(type='submit' value='Create New Book')
+        a(href='/books') Cancel
