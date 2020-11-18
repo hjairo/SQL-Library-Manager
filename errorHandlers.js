@@ -9,7 +9,6 @@ const pageErrorHandler = (req, res, next) => {
 // Global error handler
 const globalHandler = (err, req, res, next) => {
   if (err.status === 404) {
-    console.log(`${err} / Status: ${err.status}`);
     res.render("page-not-found", { err });
   } else {
     err.message = err.message || "Wot'n tornation? There was an error with the server.";
