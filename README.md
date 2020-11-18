@@ -1,4 +1,4 @@
-# SQL-Library-Manager
+# SQL Library Manager
  Application that manages a collection of books from a database.
 
 ## Tools used
