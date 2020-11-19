@@ -214,9 +214,9 @@ h3.error {
 /* Mobile version settings */
 @media (max-width: 500px) {
 	body {
-		background-attachment: fixed;
+		background-image: none;
 	}
-	
+
 	table,
 	thead,
 	tbody,
