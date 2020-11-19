@@ -214,7 +214,7 @@ h3.error {
 /* Mobile version settings */
 @media (max-width: 500px) {
 	body {
-		background-image: none;
+		background-image: none !important;
 	}
 
 	table,
